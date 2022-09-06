@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3. General Features &mdash; GMT 6.4.0 documentation</title>
+  <title>3. General Features &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="../index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -186,7 +186,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devdocs/team.html">Team Gallery</a></li>
@@ -1315,7 +1315,7 @@ different phase <em>offset</em> and color. See the <a class="reference internal"
 <figure class="align-center" id="id26">
 <span id="line-appearance"></span><a class="reference internal image-reference" href="../_images/GMT_linecap.png"><img alt="../_images/GMT_linecap.png" src="../_images/GMT_linecap.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">Line appearance can be varied by using <a class="reference internal" href="../gmt.conf.html#term-PS_LINE_CAP"><span class="xref std std-term">PS_LINE_CAP</span></a></span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Line appearance can be varied by using <a class="reference internal" href="../gmt.conf.html#term-PS_LINE_CAP"><span class="xref std std-term">PS_LINE_CAP</span></a>.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="toggle docutils container">
@@ -3365,7 +3365,7 @@ the “filename” will begin with “=<em>ID</em>”. Note that the netCDF form
 does not allow piping.</p>
 <p>Everything looks clearer after a few examples:</p>
 <ul class="simple">
-<li><p>To write a native binary float grid file, specify the name as <code class="docutils literal notranslate"><span class="pre">my_file.f4=bf</span></code> .</p></li>
+<li><p>To write a native binary float grid file, specify the name as <code class="docutils literal notranslate"><span class="pre">my_file.f4=bf</span></code>.</p></li>
 <li><p>To read a native short integer grid file, multiply the data by 10 and
 then add 32000, but first let values that equal 32767 be set to NaN,
 use the filename <code class="docutils literal notranslate"><span class="pre">my_file.i2=bs+s10+o32000+n32767</span></code>.</p></li>
@@ -3380,12 +3380,12 @@ as <code class="docutils literal notranslate"><span class="pre">=bs+s0.1+o-3200<
 <li><p>To write an 8-bit integer netCDF grid file with an auto-adjusted
 offset, give filename as <code class="docutils literal notranslate"><span class="pre">=nb+oa</span></code>.</p></li>
 <li><p>To read a short integer <em>.bil</em> grid file stored in binary and and force
-the reading via GDAL, add suffix <em>=gd</em> as in <code class="docutils literal notranslate"><span class="pre">n45_e008_1arc_v3.bil=gd</span></code></p></li>
+the reading via GDAL, add suffix <em>=gd</em> as in <code class="docutils literal notranslate"><span class="pre">n45_e008_1arc_v3.bil=gd</span></code>.</p></li>
 <li><p>To write a lossless, deflate compressed, and tiled GeoTIFF grid (or image) use,
-<code class="docutils literal notranslate"><span class="pre">output.tif=gd:GTiff+cTILED=YES+cCOMPRESS=DEFLATE+cPREDICTOR=3</span></code>
+<code class="docutils literal notranslate"><span class="pre">output.tif=gd:GTiff+cTILED=YES+cCOMPRESS=DEFLATE+cPREDICTOR=3</span></code>.
 See also <a class="reference internal" href="#write-grids-images"><span class="std std-ref">Writing grids and images</span></a> as well as available options
 for each output format from the GDAL driver documentation,
-<a class="reference external" href="https://gdal.org/drivers/raster/gtiff.html">for example</a></p></li>
+<a class="reference external" href="https://gdal.org/drivers/raster/gtiff.html">for example</a>.</p></li>
 </ul>
 <p>Programs that both read and/or write more than one grid file may specify
 different formats and/or scaling for the files involved. The only
@@ -3859,6 +3859,7 @@ any of these directories.</p>
 </section>
 <section id="footnotes">
 <h2><span class="section-number">3.30. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id13" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">7</a><span class="fn-bracket">]</span></span>
 <p>Vicenty, T. (1975), Direct and inverse solutions of geodesics on the
@@ -3894,6 +3895,7 @@ off; see <a class="reference internal" href="../gmt.conf.html#term-PS_COMMENTS">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">18</a><span class="fn-bracket">]</span></span>
 <p>Convert other graphics formats to Sun ras format using GraphicsMagick’s or ImageMagick’s <strong>convert</strong> program.</p>
 </aside>
+</aside>
 </section>
 </section>
 
@@ -3909,7 +3911,7 @@ off; see <a class="reference internal" href="../gmt.conf.html#term-PS_COMMENTS">
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

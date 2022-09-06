@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>grdinterpolate &mdash; GMT 6.4.0 documentation</title>
+  <title>grdinterpolate &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -156,7 +156,7 @@
 <a class="reference internal" href="#g"><span><strong>-G</strong></span></a></strong><em>outfile</em>
 [ <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong>[<strong>+x</strong><em>xname</em>][<strong>+y</strong><em>yname</em>][<strong>+z</strong><em>zname</em>][<strong>+v</strong><em>vname</em>][<strong>+s</strong><em>scale</em>][<strong>+o</strong><em>offset</em>][<strong>+n</strong><em>invalid</em>][<strong>+t</strong><em>title</em>][<strong>+r</strong><em>remark</em>] ]
 [ <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong><em>table</em>|<em>line</em> ]
-[ <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong><strong>l</strong>|<strong>a</strong>|<strong>c</strong>|<strong>n</strong>[<strong>+1</strong>|<strong>2</strong>] ]
+[ <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong><strong>l</strong>|<strong>a</strong>|<strong>c</strong>|<strong>n</strong>[<strong>+d</strong>1|2] ]
 [ <a class="reference internal" href="#r"><span><strong>-R</strong></span></a></strong><em>region</em> ]
 [ <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong><em>x/y</em>|<em>pointfile</em>[<strong>+h</strong><em>header</em>] ]
 [ <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong>[<em>min/max</em>/]<em>inc</em>[<strong>+i</strong>|<strong>n</strong>] |<a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong><em>file</em>|<em>list</em> ]
@@ -255,12 +255,12 @@ Use <a class="reference internal" href="#g"><span><strong>-G</strong></span></a>
 </dd>
 </dl>
 <dl class="simple" id="f">
-<dt><strong>-Fl</strong>|<strong>a</strong>|<strong>c</strong>|<strong>n</strong>[<strong>+1</strong>|<strong>2</strong>]</dt><dd><p>Choose from <strong>l</strong> (Linear), <strong>a</strong> (Akima spline), <strong>c</strong> (natural
+<dt><strong>-Fl</strong>|<strong>a</strong>|<strong>c</strong>|<strong>n</strong>[<strong>+d</strong>1|2]</dt><dd><p>Choose from <strong>l</strong> (Linear), <strong>a</strong> (Akima spline), <strong>c</strong> (natural
 cubic spline), and <strong>n</strong> (no interpolation: nearest point) [Default
 is <strong>-Fa</strong>]. You may change the default interpolant; see
 <a class="reference internal" href="gmt.conf.html#term-GMT_INTERPOLANT"><span class="xref std std-term">GMT_INTERPOLANT</span></a> in your <a class="reference internal" href="gmt.conf.html"><span class="doc">gmt.conf</span></a> file.
 You may optionally evaluate the first or second derivative of the spline
-by appending <strong>+1</strong> or <strong>+2</strong>, respectively.</p>
+by appending <strong>+d</strong> and specify 1 or 2, respectively.</p>
 </dd>
 </dl>
 <dl class="simple" id="r">
@@ -289,7 +289,7 @@ will use the running point number to create unique file names.</p>
 For details on array creation, see <a class="reference internal" href="#generate-1d-array">Generate 1D Array</a>.  <strong>Note</strong>: If <a class="reference internal" href="#z"><span><strong>-Z</strong></span></a></strong> is set
 and no output times are set with <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong> we simply rewrite the grid-produced cube as
 a 3-D data cube file and exit. Also, for <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong> and <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong> you may also just give
-a range via -T**<em>min/max</em> to limit the layers considered, with no interpolation
+a range via <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong><em>min/max</em> to limit the layers considered, with no interpolation
 between the selected layers.  If <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong> is not given and neither <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong> nor <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong> are
 set, then we simply extract all layers within the bounds set by <a class="reference internal" href="#r"><span><strong>-R</strong></span></a></strong>.</p>
 </dd>
@@ -558,7 +558,7 @@ distances be longitude degrees along the parallel, try:</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

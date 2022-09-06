@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>grdfft &mdash; GMT 6.4.0 documentation</title>
+  <title>grdfft &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -312,9 +312,9 @@ optional parameters. Control the FFT dimension:</p>
 dimensions &gt;= data which optimize speed and accuracy of FFT. If FFT
 dimensions &gt; grid file dimensions, data are extended and tapered to zero.</p>
 </div></blockquote>
-<p>Control detrending of data: Append modifiers for removing a linear trend:</p>
+<p>Control detrending of data: Append modifiers for removing a linear trend. Consult module documentation for the default action:</p>
 <blockquote>
-<div><p><strong>+d</strong>: Detrend data, i.e. remove best-fitting linear trend [Default].</p>
+<div><p><strong>+d</strong>: Detrend data, i.e. remove best-fitting linear trend.</p>
 <p><strong>+a</strong>: Only remove mean value.</p>
 <p><strong>+h</strong>: Only remove mid value, i.e. 0.5 * (max + min).</p>
 <p><strong>+l</strong>: Leave data alone.</p>
@@ -322,8 +322,8 @@ dimensions &gt; grid file dimensions, data are extended and tapered to zero.</p>
 <p>Control extension and tapering of data:
 Use modifiers to control how the extension and tapering are to be performed:</p>
 <blockquote>
-<div><p><strong>+e</strong> extends the grid by imposing edge-point symmetry [Default],</p>
-<p><strong>+m</strong> extends the grid by imposing edge mirror symmetry</p>
+<div><p><strong>+e</strong> extends the grid by imposing edge-point symmetry [Default].</p>
+<p><strong>+m</strong> extends the grid by imposing edge mirror symmetry.</p>
 <p><strong>+n</strong> turns off data extension.</p>
 <p>Tapering is performed from the data edge to the FFT grid edge [100%].
 Change this percentage via <strong>+t</strong><em>width</em>. When <strong>+n</strong> is in effect,
@@ -390,6 +390,11 @@ other grids geographical grids were you want to convert degrees into
 meters, select <strong>-f</strong><a class="reference internal" href="gmt.html#f-full"><span class="std std-ref">flags</span></a>. If the data are close to either pole, you should
 consider projecting the grid file onto a rectangular coordinate system
 using <a class="reference internal" href="grdproject.html"><span class="doc">grdproject</span></a></p>
+</section>
+<section id="data-detrending">
+<h2>Data Detrending<a class="headerlink" href="#data-detrending" title="Permalink to this heading">¶</a></h2>
+<p>The default detrending mode is to remove a best-fitting linear plane (<strong>+d</strong>).
+Consult and use <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong> to select other modes.</p>
 </section>
 <section id="normalization-of-spectrum">
 <h2>Normalization of Spectrum<a class="headerlink" href="#normalization-of-spectrum" title="Permalink to this heading">¶</a></h2>
@@ -478,7 +483,7 @@ components of the raw spectrum of the data in topo.nc, try:</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

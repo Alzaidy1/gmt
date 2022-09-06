@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gmtspatial &mdash; GMT 6.4.0 documentation</title>
+  <title>gmtspatial &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -335,7 +335,7 @@ countries given by the codes. Simply append one or more comma-separated countrie
 <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)">ISO 3166-1 alpha-2 convention</a> (e.g., NO) or the full
 country name (e.g., Norway). To select a state within a country (if available), append .state (e.g, US.TX),
 or the full state name (e.g., Texas). To specify a whole continent, spell out the full continent name (e.g., -RAfrica).
-Finally, append any <a class="reference internal" href="coast.html#id1"><span class="std std-ref">DCW collection</span></a> abbreviations or full names for the extent of
+Finally, append any <a class="reference internal" href="coast.html#dcw-collections"><span class="std std-ref">DCW collection</span></a> abbreviations or full names for the extent of
 the collection or named region. All names are case-insensitive. The following modifiers can be appended:</p>
 <blockquote>
 <div><ul class="simple">
@@ -398,11 +398,11 @@ polygons of length 4 or 5 that exactly match the <a class="reference internal" h
 <dt><strong>-V</strong>[<em>level</em>]</dt><dd><p>Select verbosity level [<strong>w</strong>]. <a class="reference internal" href="gmt.html#v-full"><span class="std std-ref">(See full description)</span></a> <a class="reference internal" href="cookbook/options.html#verbose-feedback-the-v-option"><span class="std std-ref">(See cookbook information)</span></a>.</p>
 </dd>
 </dl>
-<dl class="simple">
+<dl class="simple" id="w">
 <dt><strong>-W</strong><em>dist</em>[<em>unit</em>][<strong>+f</strong>|<strong>l</strong>]</dt><dd><p>Extend all segments with a new first and last point such that these points are <em>dist</em> away
 from their neighbor point in the direction implied by the two points at each end of the
 segment.  For geographic data you may append a <em>unit</em> (see <a class="reference internal" href="#units">Units</a>). To give separate
-distances for the two ends, give distf*[<em>unit</em>]/distl*[<em>unit</em>] instead.  Optionally,
+distances for the two ends, give <em>distf</em>[<em>unit</em>]/<em>distl</em>[<em>unit</em>] instead.  Optionally,
 append either <strong>+f</strong> or <strong>+l</strong> to only extend the first or last point this way [both].
 The mode of geographical calculations depends on <strong>-j</strong>.</p>
 </dd>
@@ -582,7 +582,7 @@ two OGR/GMT files.  The solution is to convert them to regular datasets via
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

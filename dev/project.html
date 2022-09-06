@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>project &mdash; GMT 6.4.0 documentation</title>
+  <title>project &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -225,7 +225,7 @@ window the length of the projection to exactly the span from the center (<a clas
 to the endpoint (<a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong>).</p>
 <p>Flat Earth (Cartesian) coordinate transformations can also be made. Set
 <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong> and remember that <em>azimuth</em> is clockwise from North (the <span class="math notranslate nohighlight">\(y\)</span>
-axis), NOT the usual cartesian theta, which is counterclockwise from the
+axis), <strong>not</strong> the usual cartesian theta, which is counterclockwise from the
 <span class="math notranslate nohighlight">\(x\)</span> axis. (i.e., <span class="math notranslate nohighlight">\(azimuth = 90 - theta\)</span>).</p>
 <p>No assumptions are made regarding the units for <span class="math notranslate nohighlight">\(x, y, r, s, p, q\)</span>, <em>dist</em>,
 <span class="math notranslate nohighlight">\(l_{min}, l_{max}, w_{min}, w_{max}\)</span>. However, if <a class="reference internal" href="#q"><span><strong>-Q</strong></span></a></strong> is
@@ -478,7 +478,7 @@ defined by the great circle from the pole to a point 15E,15N, try</p>
 <p>To generate points approximately every 10 km along an ellipse centered on (30W,70N) with
 major axis of 1500 km with azimuth of 30 degree and a minor axis of 600 km, try</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt project -C-30/70 -G10 -Z1500/600/30+e &gt; ellipse.xyp
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt project -C-30/70 -G10 -Z1500/600/30+e -Q &gt; ellipse.xyp
 </pre></div>
 </div>
 </div></blockquote>
@@ -538,8 +538,7 @@ This gives coordinates for an oblique small circle.</p>
 <a class="reference internal" href="gmtvector.html"><span class="doc">gmtvector</span></a>,
 <a class="reference internal" href="grdtrack.html"><span class="doc">grdtrack</span></a>,
 <a class="reference internal" href="mapproject.html"><span class="doc">mapproject</span></a>,
-<a class="reference internal" href="grdproject.html"><span class="doc">grdproject</span></a>,
-<a class="reference internal" href="grdtrack.html"><span class="doc">grdtrack</span></a></p>
+<a class="reference internal" href="grdproject.html"><span class="doc">grdproject</span></a></p>
 </section>
 </section>
 
@@ -555,7 +554,7 @@ This gives coordinates for an oblique small circle.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gshhg &mdash; GMT 6.4.0 documentation</title>
+  <title>gshhg &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="../../index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/team.html">Team Gallery</a></li>
@@ -170,8 +170,9 @@ segment header info can be displayed. The header info has the format <em>ID
 npoints hierarchical-level source area f_area west east south north
 container ancestor</em>, where hierarchical levels for coastline polygons go
 from 1 (shoreline) to 4 (lake inside island inside lake inside land).
-Source is either W (World Vector Shoreline) or C (CIA World Data Bank
-II); lower case is used if a lake is a river-lake. The <em>west east south
+Source is either W (World Vector Shoreline), C (CIA World Data Bank
+II), or A (Atlas of the Cryosphere (Antarctica only)); lower case is
+used if a lake is a river-lake. The <em>west east south
 north</em> is the enclosing rectangle, <em>area</em> is the polygon area in km^2
 while <em>f_area</em> is the actual area of the ancestor polygon, <em>container</em>
 is the ID of the polygon that contains this polygon (-1 if none), and
@@ -262,6 +263,38 @@ file, try</p>
 </div>
 </div></blockquote>
 </section>
+<section id="polygon-levels">
+<h2>Polygon Levels<a class="headerlink" href="#polygon-levels" title="Permalink to this heading">¶</a></h2>
+<p>The features in GSHHG have 6 levels that can be selected by <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong> and
+are listed in the table below:</p>
+<table class="docutils align-default" id="tbl-levels">
+<thead>
+<tr class="row-odd"><th class="head"><p>Level</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Continents and islands</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Lakes (regular and river lakes)</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Islands inside lakes</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Ponds in islands inside lakes</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Antarctica via ice/ocean boundary</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Antarctica via grounding line/ocean boundary</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="specific-polygons">
 <h2>Specific Polygons<a class="headerlink" href="#specific-polygons" title="Permalink to this heading">¶</a></h2>
 <p>None of the polygons have any name information associated with them (i.e.,
@@ -336,14 +369,10 @@ MathWorks and IDL have made such tools available to their users.
 However, they tend not to update their code and our file structure has
 evolved considerably over time, breaking their code. Here, some general
 technical comments on the binary data files are given.
-<strong>GSHHG</strong>: These files contain completely closed polygons of continents
-and islands (level 1), lakes (level 2), islands-in-lakes (level 3) and
-ponds-in-islands-in-lakes (level 4); a particular level can be extracted
-using the <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong> option. Continents are identified as the first 6
-polygons and can be extracted via the <strong>-Ic</strong> option. The IDs for the
-continents are Eurasia (0), Africa (1), North America
-(2), South America (3), Antarctica (4), and Australia
-(5). Files are sorted on area from large to small.
+<strong>GSHHG</strong>: Continents are identified as the first 6 polygons and can be
+extracted via the <strong>-Ic</strong> option. The IDs for the continents are Eurasia
+(0), Africa (1), North America (2), South America (3), Antarctica (4),
+and Australia (5). Files are sorted on area from large to small.
 There are two sub-groups for level 2: Regular lakes and the so-called
 “river-lakes”, the latter being sections of a river that are so wide to
 warrant a polygon representation. These river-lakes are flagged in the
@@ -379,6 +408,10 @@ classes may be extracted via <a class="reference internal" href="#n"><span><stro
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<p>Bohlander, J. and T. Scambos. 2007, Antarctic coastlines and grounding line
+derived from MODIS Mosaic of Antarctica (MOA). Boulder, Colorado USA:
+National Snow and Ice Data Center. Digital media. Accessed 24 April 2008.
+Via Atlas of the Cryosphere: <a class="reference external" href="https://nsidc.org/MMS/atlas/cryosphere_atlas_north.html">https://nsidc.org/MMS/atlas/cryosphere_atlas_north.html</a>.</p>
 <p>Douglas, D. H., and T. K. Peucker, 1973, Algorithms for the reduction of
 the number of points required to represent a digitized line of its
 caricature, <em>Can. Cartogr., 10</em>, 112–122.</p>
@@ -408,7 +441,7 @@ hierarchical, high-resolution shoreline database, <em>J. Geophys. Res.,
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

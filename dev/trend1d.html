@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>trend1d &mdash; GMT 6.4.0 documentation</title>
+  <title>trend1d &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -152,7 +152,9 @@
 <p>Fit [weighted] [robust] polynomial/Fourier model for y = f(x) to xy[w] data</p>
 <section id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
-<p><strong>gmt trend1d</strong> [ <em>table</em> ] <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong><strong>xymrw</strong>|<strong>p</strong>|<strong>P</strong>|<strong>c</strong> <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong><em>params</em>
+<p><strong>gmt trend1d</strong> [ <em>table</em> ]
+<a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong><strong>xymrw</strong>|<strong>p</strong>|<strong>P</strong>|<strong>c</strong>
+<a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong><em>params</em>
 [ <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong><em>condition_number</em> ]
 [ <a class="reference internal" href="#i"><span><strong>-I</strong></span></a></strong>[<em>confidence_level</em>] ]
 [ <a class="reference internal" href="#v"><span><strong>-V</strong></span></a></strong>[<em>level</em>] ]
@@ -172,25 +174,25 @@
 </section>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
-<p><strong>trend1d</strong> reads x,y [and w] values from the first two [three] columns
-on standard input [or <em>file</em>] and fits a regression model y = f(x) + e
-by [weighted] least squares. The functional form of f(x) may be chosen
+<p><strong>trend1d</strong> reads <em>x, y</em> [and <em>w</em>] values from the first two [three] columns
+on standard input [or <em>file</em>] and fits a regression model <em>y = f(x) + e</em>
+by [weighted] least squares. The functional form of <em>f(x)</em> may be chosen
 as polynomial or Fourier or a mix of the two, and the fit may be made robust by iterative
 reweighting of the data. The user may also search for the number of
-terms in f(x) which significantly reduce the variance in y.</p>
+terms in <em>f(x)</em> which significantly reduce the variance in <em>y</em>.</p>
 </section>
 <section id="required-arguments">
 <h2>Required Arguments<a class="headerlink" href="#required-arguments" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt><em>table</em></dt><dd><p>One or more ASCII [or binary, see <strong>-bi</strong>]
-files containing x,y [w] values in the first 2 [3] columns. If no
+files containing <em>x, y</em>[, <em>w</em>] values in the first 2 [3] columns. If no
 files are specified, <strong>trend1d</strong> will read from standard input.</p>
 </dd>
 </dl>
 <dl class="simple" id="f">
 <dt><strong>-F</strong><strong>xymrw</strong>|<strong>p</strong>|<strong>P</strong>|<strong>c</strong></dt><dd><p>Specify up to five letters from the set {<strong>x y m r w</strong>} in any
-order to create columns of ASCII [or binary] output. <strong>x</strong> = x,
-<strong>y</strong> = y, <strong>m</strong> = model f(x), <strong>r</strong> = residual y - <strong>m</strong>, <strong>w</strong> =
+order to create columns of ASCII [or binary] output. <strong>x</strong> = <em>x</em>,
+<strong>y</strong> = <em>y</em>, <strong>m</strong> = model <em>f(x)</em>, <strong>r</strong> = residual <em>y</em> - <strong>m</strong>, <strong>w</strong> =
 weight used in fitting. Alternatively, choose just the single
 selection <strong>p</strong> to output a record with the polynomial model coefficients,
 <strong>P</strong> for the normalized polynomial model coefficients, or <strong>c</strong>
@@ -202,7 +204,7 @@ for the normalized Chebyshev model coefficients.</p>
 one or more comma-separated model components.  Each component is
 of the form <strong>T</strong><em>n</em>, where <strong>T</strong> indicates the basis function and
 <em>n</em> indicates the polynomial degree or how many terms in the Fourier series we want to include.  Choose
-<strong>T</strong> from <strong>p</strong> (polynomial with intercept and powers of x up to degree <em>n</em>), <strong>P</strong> (just the
+<strong>T</strong> from <strong>p</strong> (polynomial with intercept and powers of <em>x</em> up to degree <em>n</em>), <strong>P</strong> (just the
 single term <em>x^n</em>), <strong>f</strong> (Fourier series with <em>n</em> terms),
 <strong>c</strong> (Cosine series with <em>n</em> terms), <strong>s</strong> (sine series with
 <em>n</em> terms), <strong>F</strong> (single Fourier component of order <em>n</em>),
@@ -212,10 +214,11 @@ single term <em>x^n</em>), <strong>f</strong> (Fourier series with <em>n</em> te
 range, respectively.  Change this using the <strong>+o</strong><em>origin</em> and
 <strong>+l</strong><em>length</em> modifiers.  We normalize <em>x</em> before evaluating
 the basis functions.  Basically, the trigonometric bases all
-use the normalized x’ = (2*pi*(x-<em>origin</em>)/<em>length</em>) while
-the polynomials use x’ = 2*(x-x_mid)/(xmax - xmin) for stability. Finally, append <strong>+r</strong> for a robust
+use the normalized <em>x</em>’ = (2*pi*(<em>x-origin</em>)/<em>length</em>) while
+the polynomials use <em>x</em>’ = 2*(<em>x-x_mid</em>)/(<em>xmax - xmin</em>) for stability.
+Finally, append <strong>+r</strong> for a robust
 solution [Default gives a least squares fit].  Use <a class="reference internal" href="#v"><span><strong>-V</strong></span></a></strong> to see
-a plain-text representation of the y(x) model specified in <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong>.</p>
+a plain-text representation of the <em>y(x)</em> model specified in <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong>.</p>
 </dd>
 </dl>
 </section>
@@ -225,8 +228,8 @@ a plain-text representation of the y(x) model specified in <a class="reference i
 <dt><strong>-C</strong><em>condition_number</em></dt><dd><p>Set the maximum allowed condition number for the matrix solution.
 <strong>trend1d</strong> fits a damped least squares model, retaining only that
 part of the eigenvalue spectrum such that the ratio of the largest
-eigenvalue to the smallest eigenvalue is <em>condition_#</em>. [Default:
-<em>condition_#</em> = 1.0e06. ].</p>
+eigenvalue to the smallest eigenvalue is <em>condition_number</em>. [Default:
+<em>condition_number</em> = 1.0e06. ].</p>
 </dd>
 </dl>
 <dl class="simple" id="i">
@@ -248,7 +251,7 @@ should place the most important terms first.</p>
 <dt><strong>-W</strong>[<strong>+s</strong>]</dt><dd><p>Weights are supplied in input column 3. Do a weighted least squares
 fit [or start with these weights when doing the iterative robust
 fit]. Append <strong>+s</strong> to instead read data uncertainties (one sigma)
-and create weights as 1/sigma^2 [Default reads only the first 2 columns].</p>
+and create weights as 1/<em>sigma</em>^2 [Default reads only the first 2 columns].</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -322,21 +325,21 @@ specify more decimals using the <a class="reference internal" href="gmt.conf.htm
 </section>
 <section id="remarks">
 <h2>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">¶</a></h2>
-<p>If a polynomial model is included, then the domain of x will be shifted and scaled
+<p>If a polynomial model is included, then the domain of <em>x</em> will be shifted and scaled
 to [-1, 1] and the basis functions will be Chebyshev polynomials provided
-the polygon is of full order (otherwise we stay with powers of x). The Chebyshev polynomials
+the polygon is of full order (otherwise we stay with powers of <em>x</em>). The Chebyshev polynomials
 have a numerical advantage in the form of the matrix which must be
 inverted and allow more accurate solutions. The Chebyshev polynomial of
-degree n has n+1 extrema in [-1, 1], at all of which its value is either
+degree <em>n</em> has <em>n+1</em> extrema in [-1, 1], at all of which its value is either
 -1 or +1. Therefore the magnitude of the polynomial model coefficients
-can be directly compared. NOTE: The stable model coefficients are
-Chebyshev coefficients. The corresponding polynomial coefficients in a +
-bx + cxx + … are also given in Verbose mode but users must realize
-that they are NOT stable beyond degree 7 or 8. See Numerical Recipes for
+can be directly compared. <strong>Note</strong>: The stable model coefficients are
+Chebyshev coefficients. The corresponding polynomial coefficients in <em>a +
+bx + cxx + …</em> are also given in Verbose mode but users must realize
+that they are <strong>not</strong> stable beyond degree 7 or 8. See Numerical Recipes for
 more discussion. For evaluating Chebyshev polynomials, see <a class="reference internal" href="gmtmath.html"><span class="doc">gmtmath</span></a>.</p>
 <p>The <strong>-N</strong>…<strong>+r</strong> (robust) and <a class="reference internal" href="#i"><span><strong>-I</strong></span></a></strong> (iterative) options evaluate the
-significance of the improvement in model misfit Chi-Squared by an F
-test. The default confidence limit is set at 0.51; it can be changed
+significance of the improvement in model misfit Chi-Squared by an <em>F</em>-test.
+The default confidence limit is set at 0.51; it can be changed
 with the <a class="reference internal" href="#i"><span><strong>-I</strong></span></a></strong> option. The user may be surprised to find that in most
 cases the reduction in variance achieved by increasing the number of
 terms in a model is not significant at a very high degree of confidence.
@@ -352,7 +355,7 @@ when the model residuals have an outlier-free normal distribution. This
 means that the influence of outliers is reduced only slightly at each
 iteration; consequently the reduction in Chi-Squared is not very
 significant. If the procedure needs a few iterations to successfully
-attenuate their effect, the significance level of the F test must be
+attenuate their effect, the significance level of the <em>F</em>-test must be
 kept low.</p>
 </section>
 <section id="examples">
@@ -417,7 +420,7 @@ Revised Edition, Academic Press, San Diego.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

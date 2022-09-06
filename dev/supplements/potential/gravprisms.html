@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gravprisms &mdash; GMT 6.4.0 documentation</title>
+  <title>gravprisms &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="../../index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/team.html">Team Gallery</a></li>
@@ -156,11 +156,11 @@
 <p><strong>gmt gravprisms</strong> [ <em>table</em> ]
 [ <a class="reference internal" href="#a"><span><strong>-A</strong></span></a></strong> ]
 [ <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong>[<strong>+q</strong>][<strong>+w</strong><em>file</em>][<strong>+z</strong><em>dz</em>] ]
-[ <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong><em>density</em> ]
+[ <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong><em>density</em>[<strong>+c</strong>] ]
 [ <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong><em>dx</em>[/<em>dy</em>] ]
 [ <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong><strong>f</strong>|<strong>n</strong>[<em>lat</em>]|<strong>v</strong> ]
 [ <a class="reference internal" href="#g"><span><strong>-G</strong></span></a></strong><em>outfile</em> ]
-[ <a class="reference internal" href="#h"><span><strong>-H</strong></span></a></strong><em>H</em>/<em>rho_l</em>/<em>rho_h</em>[<strong>+d</strong><em>densify</em>][<strong>+p</strong><em>power</em>] ]
+[ <a class="reference internal" href="#h"><span><strong>-H</strong></span></a></strong><em>H</em>/<em>rho_l</em>/<em>rho_h</em>[<strong>+b</strong><em>boost</em>][<strong>+d</strong><em>densify</em>][<strong>+p</strong><em>power</em>] ]
 [ <a class="reference internal" href="#i"><span><strong>-I</strong></span></a></strong><em>increment</em> ]
 [ <a class="reference internal" href="#l"><span><strong>-L</strong></span></a></strong><em>base</em> ]
 [ <a class="reference internal" href="#m"><span><strong>-M</strong></span></a></strong>[<strong>h</strong>][<strong>z</strong>] ]
@@ -274,9 +274,13 @@ that file has been saved, i.e., no geopotential calculations will take place.</p
 </dd>
 </dl>
 <dl class="simple" id="d">
-<dt><strong>-D</strong><em>density</em></dt><dd><p>Sets a fixed density contrast that overrides any individual prism settings in the prisms file, in <span class="math notranslate nohighlight">\(\mbox{kg/m}^3\)</span> of <span class="math notranslate nohighlight">\(\mbox{g/cm}^3\)</span>. Alternatively, give name of an input grid with spatially varying, vertically-averaged
-prism densities. This requires <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong> and the grid must be co-registered with the grid provided by <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong>
-(or <a class="reference internal" href="#l"><span><strong>-L</strong></span></a></strong> and <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong>).</p>
+<dt><strong>-D</strong><em>density</em>[<strong>+c</strong>]</dt><dd><p>Sets a fixed density contrast that overrides any individual prism settings in the prisms file, in
+<span class="math notranslate nohighlight">\(\mbox{kg/m}^3\)</span> of <span class="math notranslate nohighlight">\(\mbox{g/cm}^3\)</span>. Append <strong>+c</strong> to instead subtract this density from
+the individual prism densities. Alternatively, give name of an input grid with spatially varying,
+vertically-averaged prism densities. This requires <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong> and the grid must be co-registered with the
+grid provided by <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong> (or <a class="reference internal" href="#l"><span><strong>-L</strong></span></a></strong> and <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong>).  <strong>Note</strong>: If <a class="reference internal" href="#h"><span><strong>-H</strong></span></a></strong> is used then a fixed density may be set
+via <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong> provided its modifier <strong>+c</strong> is set. We will then compute <em>density contrasts</em> in the seamount
+relative to the fixed <em>density</em> (such as density of seawater for underwater seamounts).</p>
 </dd>
 </dl>
 <dl class="simple" id="e">
@@ -300,10 +304,11 @@ specifies an output table name.</p>
 </dd>
 </dl>
 <dl class="simple" id="h">
-<dt><strong>-H</strong><em>H</em>/<em>rho_l</em>/<em>rho_h</em>[<strong>+d</strong><em>densify</em>][<strong>+p</strong><em>power</em>]</dt><dd><p>Set reference seamount parameters for an <em>ad-hoc</em> variable radial density function with depth. Give
+<dt><strong>-H</strong><em>H</em>/<em>rho_l</em>/<em>rho_h</em>[<strong>+b</strong><em>boost</em>][<strong>+d</strong><em>densify</em>][<strong>+p</strong><em>power</em>]</dt><dd><p>Set reference seamount parameters for an <em>ad-hoc</em> variable radial density function with depth. Give
 the low and high seamount densities in <span class="math notranslate nohighlight">\(\mbox{kg/m}^3\)</span> or <span class="math notranslate nohighlight">\(\mbox{g/cm}^3\)</span> and the fixed reference height <em>H</em> in meters.
 Use modifiers <strong>+d</strong> and <strong>+p</strong> to change the water-pressure-driven flank density increase over the
 full reference height [0] and the variable density profile exponent <em>power</em> [1, i.e., a linear change].
+To simulate the higher starting densities in truncated guyots you can <em>boost</em> the seamount height by this factor [1].
 Requires <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong> to know the full height of the seamount.
 See <a class="reference internal" href="grdseamount.html"><span class="doc">grdseamount</span></a> for more details.</p>
 </dd>
@@ -445,9 +450,27 @@ prism file and restrict calculations to the same crossing profile, i.e.:</p>
 gmt plot faa_crossing.txt -R-30/30/0/350 -i0,3 -W1p -B -pdf faa_crossing
 </pre></div>
 </div>
+<p>To build prisms using a variable density grid for an interface crossing the zero level
+and obtain prisms with the negative of the given density contrast if below zero and the
+positive density contrast if above zero, try:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt gravprisms -TFlexure_surf.grd -C+wprisms_var.txt+q -DVariable_drho.grd
+</pre></div>
+</div>
 </section>
-<section id="note">
-<h2>Note<a class="headerlink" href="#note" title="Permalink to this heading">¶</a></h2>
+<section id="grids-straddling-zero-level">
+<h2>Grids Straddling Zero Level<a class="headerlink" href="#grids-straddling-zero-level" title="Permalink to this heading">¶</a></h2>
+<p>When creating prisms from grids via <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong>, a special case arises when a single surface (set via
+<a class="reference internal" href="#l"><span><strong>-L</strong></span></a></strong> or <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong>) straddles zero.  This may happen if the surface reflects flexure beneath a
+load, which has in a negative moat flanked by positive bulges.  When such a <em>interface</em> grid
+is detected we build prisms going from <em>z</em> to zero for negative <em>z</em> and from 0 to <em>z</em> for
+positive <em>z</em>. As we flip below zero we also change the sign of the given density contrast.
+You can override this behavior by specifying the opposite layer surface either by a constant
+or another grid. E.g., if <a class="reference internal" href="#l"><span><strong>-L</strong></span></a></strong> specifies the base surface you can eliminate prisms exceeding zero
+via <strong>-T</strong>0, and by interchanging the <a class="reference internal" href="#l"><span><strong>-L</strong></span></a></strong> and <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong> arguments you can eliminate prisms below
+zero.  <strong>Note</strong>: When two surfaces are implied we keep the given density contrast as given.</p>
+</section>
+<section id="note-on-precision">
+<h2>Note on Precision<a class="headerlink" href="#note-on-precision" title="Permalink to this heading">¶</a></h2>
 <p>The analytical expression for the geoid over a vertical prism (Nagy et al., 2000) is
 fairly involved and contains 48 terms.  Due to various cancellations the end result
 is more unstable than the simpler expressions for gravity and VGG.  Be aware that the
@@ -490,7 +513,7 @@ for the prism, <em>J. Geod., 74</em>, 552–560,
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

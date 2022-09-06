@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>grdmath &mdash; GMT 6.4.0 documentation</title>
+  <title>grdmath &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -155,6 +155,7 @@
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
 <p><strong>gmt grdmath</strong>
 [ <a class="reference internal" href="#a"><span><strong>-A</strong></span></a></strong><em>min_area</em>[/<em>min_level</em>/<em>max_level</em>][<strong>+a</strong>[<strong>g</strong>|<strong>i</strong>][<strong>s</strong>|<strong>S</strong>]][<strong>+l</strong>|<strong>r</strong>][<strong>+p</strong><em>percent</em>] ]
+[ <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong>[<em>cpt</em>] ]
 [ <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong><em>resolution</em>[<strong>+f</strong>] ]
 [ <a class="reference internal" href="#i"><span><strong>-I</strong></span></a></strong><em>increment</em> ]
 [ <a class="reference internal" href="#m"><span><strong>-M</strong></span></a></strong> ] [ <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong> ]
@@ -222,6 +223,11 @@ users who wish to utilize their own Antarctica (with islands) coastline
 you can add <strong>s</strong> to skip all GSHHG features below 60S. In contrast, you
 can add <strong>S</strong> to instead skip all features <em>north</em> of 60S.  See
 GSHHG INFORMATION below for more details. (<a class="reference internal" href="#a"><span><strong>-A</strong></span></a></strong> is only relevant to the <strong>LDISTG</strong> operator)</p>
+</dd>
+</dl>
+<dl class="simple" id="c">
+<dt><strong>-C</strong>[<em>cpt</em>]</dt><dd><p>Retain the grid’s default CPT (if it has one), or alternatively replace it with a
+new default <em>cpt</em> [Default removes any default CPT from the output grid].</p>
 </dd>
 </dl>
 <dl class="simple" id="d">
@@ -1395,15 +1401,14 @@ harmonics for degree <em>L</em> and order <em>M</em> (<span class="math notransl
 the grid, which is assumed to be in degrees. <strong>YLM</strong> and <strong>YLMg</strong> return
 two grids, the real (cosine) and imaginary (sine) component of the
 complex spherical harmonic. Use the <strong>POP</strong> operator (and <strong>EXCH</strong>) to
-get rid of one of them, or save both by giving two consecutive = file.nc calls.</p>
-<p>The orthonormalized complex harmonics <strong>YLM</strong> are most commonly used in
+get rid of one of them, or save both by giving two consecutive = file.nc calls.
+The orthonormalized complex harmonics <strong>YLM</strong> are most commonly used in
 physics and seismology. The square of <strong>YLM</strong> integrates to 1 over a
 sphere. In geophysics, <strong>YLMg</strong> is normalized to produce unit power when
 averaging the cosine and sine terms (separately!) over a sphere (i.e.,
-their squares each integrate to 4 pi). The Condon-Shortley phase <span class="math notranslate nohighlight">\((-1)^M\)</span>
+their squares each integrate to <span class="math notranslate nohighlight">\(4 \pi\)</span>). The Condon-Shortley phase <span class="math notranslate nohighlight">\((-1)^M\)</span>
 is not included in <strong>YLM</strong> or <strong>YLMg</strong>, but it can be added by using <em>-M</em>
-as argument.</p>
-</li>
+as argument.</p></li>
 <li><p>All the derivatives are based on central finite differences, with
 natural boundary conditions, and are Cartesian derivatives.</p></li>
 <li><p>Files that have the same names as some operators, e.g., <strong>ADD</strong>,
@@ -1514,16 +1519,30 @@ we employ a full spherical ray-shooting method to determine a points status.</p>
 <section id="macros">
 <h2>Macros<a class="headerlink" href="#macros" title="Permalink to this heading">¶</a></h2>
 <p>Users may save their favorite operator combinations as macros via the
-file <em>grdmath.macros</em> in their current or user directory. The file may contain
+file <em>grdmath.macros</em> in their current or user (~/.gmt) directory. The file may contain
 any number of macros (one per record); comment lines starting with # are
 skipped. The format for the macros is <strong>name</strong> = <strong>arg1 arg2 … arg2</strong>
 : <em>comment</em> where <strong>name</strong> is how the macro will be used. When this
 operator appears on the command line we simply replace it with the
 listed argument list. No macro may call another macro. As an example,
 the following macro expects three arguments (radius x0 y0) and sets the
-modes that are inside the given circle to 1 and those outside to 0:</p>
+nodes that are inside the given Cartesian circle to 1 and those outside to 0:</p>
 <p><strong>INCIRCLE</strong> = <strong>CDIST EXCH DIV</strong> 1 <strong>LE</strong> : usage: r x y INCIRCLE to return 1
 inside circle</p>
+<p>Marine geophysicist often need to evaluate predicted seafloor depth from an age grid.
+One such model is the classic <em>Parsons and Sclater</em> [1977] curve.  It may be written</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z(t) = \left \{ \begin{array}{rr}
+        2500 + 350 \sqrt{t}, &amp; t \leq 70 \\
+        6400 - 3200 \exp{\left (\frac{-t}{62.8}\right)}, &amp; t &gt; 20
+    \end{array} \right.\end{split}\]</div>
+<p>A good cross-over age for these curves is 26.2682 Myr. A macro for this system is a bit awkward due to the split but can be written</p>
+<p><strong>PS77</strong> = <strong>STO&#64;T POP</strong> 6400 <strong>RCL&#64;T</strong> 62.8 <strong>DIV NEG EXP</strong> 3200 <strong>MUL SUB RCL&#64;T</strong> 26.2682 <strong>GT MUL</strong> 2500 350 <strong>RCL&#64;T SQRT MUL ADD RCL&#64;T</strong> 26.2682 <strong>LE MUL ADD</strong> : usage: age PS77 returns depth</p>
+<p>i.e., we evaluate both expressions and multiply them by 1 or 0 depending where they apply, and then add them.  With this macro
+installed you can compute predicted depths in the Pacific northwest via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt grdmath -R200/240/40/60 @earth_age_01m_g <span class="nv">PS77</span> <span class="o">=</span> depth_ps77.grd
+</pre></div>
+</div>
 <p><strong>Note</strong>: Because geographic or time constants may be present in a macro, it
 is required that the optional comment flag (:) must be followed by a space.</p>
 </section>
@@ -1594,8 +1613,10 @@ per node of all the grids matching the name model_*.grd using:</p>
 Functions</em>, Applied Mathematics Series, vol. 55, Dover, New York.</p>
 <p>Holmes, S. A., and W. E. Featherstone, 2002, A unified approach to the
 Clenshaw summation and the recursive computation of very high degree and
-order normalized associated Legendre functions. <em>Journal of Geodesy</em>,
+order normalized associated Legendre functions. <em>J. of Geodesy</em>,
 76, 279-299.</p>
+<p>B. Parsons and J. G. Sclater, 1977, An analysis of the variation of ocean
+floor bathymetry and heat flow with age, <em>J. Geophys. Res.</em>, 82, 803-827.</p>
 <p>Press, W. H., S. A. Teukolsky, W. T. Vetterling, and B. P. Flannery,
 1992, <em>Numerical Recipes</em>, 2nd edition, Cambridge Univ., New York.</p>
 <p>Spanier, J., and K. B. Oldman, 1987, <em>An Atlas of Functions</em>, Hemisphere
@@ -1621,7 +1642,7 @@ Publishing Corp.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

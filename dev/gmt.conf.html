@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gmt.conf &mdash; GMT 6.4.0 documentation</title>
+  <title>gmt.conf &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -464,10 +464,10 @@ The default is <code class="docutils literal notranslate"><span class="pre">%.12
 <td><p>3.14</p></td>
 </tr>
 <tr class="row-even"><td><p>%8.4f</p></td>
-<td><p>3.1416</p></td>
+<td><p>__3.1416</p></td>
 </tr>
 <tr class="row-odd"><td><p>%08.2f</p></td>
-<td><p>003.1416</p></td>
+<td><p>00003.14</p></td>
 </tr>
 <tr class="row-even"><td><p>%.5f</p></td>
 <td><p>3.14159</p></td>
@@ -529,7 +529,7 @@ among <strong>NaN</strong>, <strong>extrap</strong> or <strong>extrapval</strong
 return NaN for any element of x that is outside range. Second case lets
 the selected algorithm compute the extrapolation values. Third case sets
 the extrapolation values to the constant value passed in <em>value</em> (this
-value must off course be numeric) [default is <strong>NaN</strong>].</p>
+value must of course be numeric) [default is <strong>NaN</strong>].</p>
 </dd>
 <dt id="term-GMT_CUSTOM_LIBS"><strong>GMT_CUSTOM_LIBS</strong><a class="headerlink" href="#term-GMT_CUSTOM_LIBS" title="Permalink to this term">¶</a></dt><dd><p>Comma-separated list of GMT-compliant shared libraries that extend
 the capability of GMT with additional custom modules [default is <strong>none</strong>].
@@ -764,18 +764,38 @@ occur for certain oblique or polar projections) [default is
 </dd>
 <dt id="term-MAP_ANNOT_OBLIQUE"><strong>MAP_ANNOT_OBLIQUE</strong><a class="headerlink" href="#term-MAP_ANNOT_OBLIQUE" title="Permalink to this term">¶</a></dt><dd><p>This setting applies to “oblique” projections, which in this context
 means maps whose boundary is a rectangle not specified by meridians
-and parallels.  We expect a comma-separated list of up to seven keywords:
-<strong>separate</strong> means longitudes will be annotated on the lower and upper
-boundaries only, and latitudes will be annotated on the left and right
-boundaries only; <strong>anywhere</strong> means annotations will occur wherever an
-imaginary gridline crosses the map boundaries; <strong>lon_horizontal</strong> means
-longitude annotations will be plotted horizontally; <strong>lat_horizontal</strong>
-means latitude annotations will be plotted horizontally; <strong>tick_extend</strong>
-means tick-marks are extended so the distance from the tip of the oblique
-tick to the map frame equals the specified tick length; <strong>tick_normal</strong>
-means tick-marks will be drawn normal to the border regardless of
-gridline angle; <strong>lat_parallel</strong> means latitude annotations will be
-plotted parallel to the border [default is <strong>anywhere</strong>].</p>
+and parallels.  We expect a comma-separated list of up to seven
+keywords [default is <strong>anywhere</strong>]:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>separate</p></td>
+<td><p>Annotate longitudes on lower and upper boundaries only, and latitudes on the left and right boundaries only</p></td>
+</tr>
+<tr class="row-odd"><td><p>anywhere</p></td>
+<td><p>Annotations will occur wherever an imaginary gridline crosses the map boundaries</p></td>
+</tr>
+<tr class="row-even"><td><p>lon_horizontal</p></td>
+<td><p>Longitude annotations will be plotted horizontally</p></td>
+</tr>
+<tr class="row-odd"><td><p>lat_horizontal</p></td>
+<td><p>Latitude annotations will be plotted horizontally</p></td>
+</tr>
+<tr class="row-even"><td><p>tick_extend</p></td>
+<td><p>Extend tick-marks so distance from tip of the oblique tick to map frame equals specified tick length</p></td>
+</tr>
+<tr class="row-odd"><td><p>tick_normal</p></td>
+<td><p>Draw tick-marks normal to the border regardless of gridline angle</p></td>
+</tr>
+<tr class="row-even"><td><p>lat_parallel</p></td>
+<td><p>Latitude annotations will be plotted parallel to the border</p></td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt id="term-MAP_ANNOT_OFFSET"><strong>MAP_ANNOT_OFFSET</strong><a class="headerlink" href="#term-MAP_ANNOT_OFFSET" title="Permalink to this term">¶</a></dt><dd><p>Sets both <a class="reference internal" href="#term-MAP_ANNOT_OFFSET_PRIMARY"><span class="xref std std-term">MAP_ANNOT_OFFSET_PRIMARY</span></a> and
 <a class="reference internal" href="#term-MAP_ANNOT_OFFSET_SECONDARY"><span class="xref std std-term">MAP_ANNOT_OFFSET_SECONDARY</span></a> to the value specified.
@@ -844,18 +864,33 @@ extension in percent) or one of <strong>c</strong>, <strong>i</strong>, or <stro
 is the absolute extension of the axis to the start of the vector base
 instead).  The vector stem is set to match <a class="reference internal" href="#term-MAP_FRAME_WIDTH"><span class="xref std std-term">MAP_FRAME_WIDTH</span></a>, while
 the vector head length and width are 10 and 5 times this width,
-respectively.  You may control its shape via <a class="reference internal" href="#term-MAP_VECTOR_SHAPE"><span class="xref std std-term">MAP_VECTOR_SHAPE</span></a>.</p>
+respectively.  You may control its shape via <a class="reference internal" href="#term-MAP_VECTOR_SHAPE"><span class="xref std std-term">MAP_VECTOR_SHAPE</span></a>.
+The graph vectors are plotted as normal boundary axes.  Use <strong>graph-origin</strong>
+to shift the <strong>W</strong> and <strong>S</strong> axes so they intersect at the user data
+(0, 0) origin instead.  In this mode, only the <strong>W</strong> and <strong>S</strong> axes can be
+selected (or <strong>w</strong>, <strong>s</strong>, <strong>l</strong>, and <strong>b</strong> too); the <strong>E</strong> and <strong>N</strong> (and
+<strong>e</strong>, <strong>n</strong>, <strong>r</strong> and <strong>t</strong>) will be ignored.  <strong>Note</strong>: Annotations
+at any axes intersections will be suppressed.  To select another intersection point
+than the data origin you may append <strong>+o</strong><em>xorig</em>/<em>yorig</em> or the short-cut
+<strong>+oc</strong> to center the axes on the current data domain [0/0].</p>
 <div class="toggle docutils container">
 <p>Here is an example showing the appearance of different <strong>MAP_FRAME_TYPE</strong> settings.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt begin GMT_map_frame_type
   gmt <span class="nb">set</span> GMT_THEME cookbook
-  gmt <span class="nb">set</span> FONT_TITLE 18p
-  gmt subplot begin 1x5 -Fs3.5c/3.5c -M0.4c -R0/10/0/10
-    gmt basemap -JM? -Baf -BWSen+t<span class="s2">&quot;fancy&quot;</span> -c --MAP_FRAME_TYPE<span class="o">=</span>fancy
-    gmt basemap -JM? -Baf -BWSen+t<span class="s2">&quot;fancy+&quot;</span> -c --MAP_FRAME_TYPE<span class="o">=</span>fancy+
-    gmt basemap -JM? -Baf -BWSen+t<span class="s2">&quot;plain&quot;</span> -c --MAP_FRAME_TYPE<span class="o">=</span>plain
-    gmt basemap -JX? -Baf -BWSen+t<span class="s2">&quot;inside&quot;</span> -c --MAP_FRAME_TYPE<span class="o">=</span>inside
-    gmt basemap -JX? -Baf -BWS+t<span class="s2">&quot;graph&quot;</span> -c --MAP_FRAME_TYPE<span class="o">=</span>graph
+  gmt <span class="nb">set</span> FONT_TAG 12p,Helvetica-Bold
+  gmt subplot begin 2x3 -Fs4c/3.5c -M0.5c -R-5/5/-4/5 -A+JTC+o4p/10p
+    gmt subplot <span class="nb">set</span> -Afancy
+    gmt basemap -JM? -Baf -BWSen --MAP_FRAME_TYPE<span class="o">=</span>fancy
+    gmt subplot <span class="nb">set</span> -Afancy+
+    gmt basemap -JM? -Baf -BWSen --MAP_FRAME_TYPE<span class="o">=</span>fancy+
+    gmt subplot <span class="nb">set</span> -Aplain
+    gmt basemap -JM? -Baf -BWSen --MAP_FRAME_TYPE<span class="o">=</span>plain
+    gmt subplot <span class="nb">set</span> -Ainside
+    gmt basemap -JX? -Baf -BWSen --MAP_FRAME_TYPE<span class="o">=</span>inside
+    gmt subplot <span class="nb">set</span> -Agraph
+    gmt basemap -JX? -Baf -BWS --MAP_FRAME_TYPE<span class="o">=</span>graph
+    gmt subplot <span class="nb">set</span> -Agraph-origin
+    gmt basemap -JX? -Baf -BWS --MAP_FRAME_TYPE<span class="o">=</span>graph-origin
   gmt subplot end
 gmt end show
 </pre></div>
@@ -1473,7 +1508,7 @@ correspond to 1800 through 1828. [default is <strong>1950</strong>].</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

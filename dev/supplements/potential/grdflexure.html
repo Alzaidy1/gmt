@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>grdflexure &mdash; GMT 6.4.0 documentation</title>
+  <title>grdflexure &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="../../index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../devdocs/team.html">Team Gallery</a></li>
@@ -154,7 +154,7 @@
 <section id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
 <p><strong>gmt grdflexure</strong> <em>input</em>
-<a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong><em>rm</em>/<em>rl</em>[/<em>ri</em>]/<em>rw</em>
+<a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong><em>rm</em>/<em>rl</em>[/<em>ri</em>]/<em>rw</em>[<strong>+r</strong><em>rr</em>]
 <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong>[<em>Te</em>[<strong>k</strong>][/<em>Te2</em>[<strong>k</strong>]]]
 <a class="reference internal" href="#g"><span><strong>-G</strong></span></a></strong><em>outgrid</em>
 [ <a class="reference internal" href="#a"><span><strong>-A</strong></span></a></strong><em>Nx</em>/<em>Ny</em>/<em>Nxy</em> ]
@@ -198,7 +198,7 @@ rheology and related constants, including in-plate forces.</p>
 </section>
 <section id="required-arguments">
 <h2>Required Arguments<a class="headerlink" href="#required-arguments" title="Permalink to this heading">¶</a></h2>
-<dl class="simple">
+<dl>
 <dt><em>input</em></dt><dd><p>Supplies the topographic load information in one of many forms:</p>
 <ul class="simple">
 <li><p>A single 2-D binary grid file with the topography of the load
@@ -218,12 +218,22 @@ setting in <a class="reference internal" href="#d"><span><strong>-D</strong></sp
 <li><p>A file list with extension “.lis” does not need the <strong>+l</strong> modifier
 and will be automatically recognized as a file list.</p></li>
 </ul>
+<p><strong>Note</strong>: The horizontal dimensions are expected to be in meters.  If you
+have grids in km then you can append <strong>+uk</strong> to do the required conversion
+when the grid is read.  All input grids must have the same dimensions. If
+a grid contains NaNs then they are quietly replaced with zeros; use <a class="reference internal" href="#v"><span><strong>-V</strong></span></a></strong> to
+get a report when this happens.</p>
 </dd>
 </dl>
 <dl class="simple" id="d">
-<dt><strong>-D</strong><em>rm</em>/<em>rl</em>[/<em>ri</em>]/<em>rw</em></dt><dd><p>Sets density for mantle, load, infill, and water (or air).  If <em>ri</em> differs from
-<em>rl</em> then an approximate solution will be found.  If <em>ri</em> is not given
-then it defaults to <em>rl</em>.  Values may be given in km/m^3 or g/cm^3.</p>
+<dt><strong>-D</strong><em>rm</em>/<em>rl</em>[/<em>ri</em>]/<em>rw</em>[<strong>+r</strong><em>rr</em>]</dt><dd><p>Sets density for mantle, load, infill, and water (or air).  If <em>ri</em> differs from
+<em>rl</em> then an approximate solution will be found.  If <em>ri</em> is not given then it
+defaults to <em>rl</em>.  Values may be given in <span class="math notranslate nohighlight">\(\mbox{kg/m}^3\)</span> or <span class="math notranslate nohighlight">\(\mbox{g/cm}^3\)</span>.
+<strong>Note</strong>: If a variable load density grid is supplied via <a class="reference internal" href="#h"><span><strong>-H</strong></span></a></strong> then <em>rl</em>
+must be given as -. Whether the load density is variable or not, you can (via
+the <strong>+r</strong> modifier) specify a fixed <em>root</em> density, i.e., the infill density
+just beneath the load. This will force the load topography to be rescaled by
+the ratio <em>rl/rr</em> and then <em>rl</em> will be reset to <em>rr</em> for flexure calculations.</p>
 </dd>
 </dl>
 <dl class="simple" id="e">
@@ -231,9 +241,9 @@ then it defaults to <em>rl</em>.  Values may be given in km/m^3 or g/cm^3.</p>
 If the elastic thickness exceeds 1e10 it will be interpreted as
 a flexural rigidity <em>D</em> (by default, <em>D</em> is computed from <em>Te</em>, Young’s
 modulus, and Poisson’s ratio; see <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong> to change these values).
-If just <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong> is given and <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong> is used it means no plate is given
+If <a class="reference internal" href="#e"><span><strong>-E</strong></span></a></strong> is given with no arguments and <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong> is given it means no plate is present
 and we will return a purely viscous response with or without an asthenospheric layer.
-Select a general linear viscoelastic response by supplying both an initial and
+Select a general linear viscoelastic response instead by supplying both an initial and
 final elastic thickness <em>Te2</em>; this response also requires <a class="reference internal" href="#m"><span><strong>-M</strong></span></a></strong>.</p>
 </dd>
 </dl>
@@ -255,7 +265,7 @@ automatic scaling to preserve precision for integer grids [Default
 is 1].</p></li>
 </ul>
 </div></blockquote>
-<p>Note: Any offset is added before any scaling. <strong>+sa</strong> also sets <strong>+oa</strong>
+<p><strong>Note</strong>: Any offset is added before any scaling. <strong>+sa</strong> also sets <strong>+oa</strong>
 (unless overridden). To write specific formats via GDAL, use =<em>gd</em>
 and supply <em>driver</em> (and optionally <em>dataType</em>) and/or one or more
 concatenated GDAL <strong>-co</strong> options using <strong>+c</strong>. See
@@ -292,7 +302,8 @@ Cannot be used in conjunctions with <a class="reference internal" href="#m"><spa
 <dl class="simple" id="h">
 <dt><strong>-H</strong><em>rhogrid</em></dt><dd><p>Supply optional variable load density grid.  It can be a single
 grid or a grid name template (see <a class="reference internal" href="#name-template">Name Template</a> for details). Requires
-<em>rho_l</em> be set to - in <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong>.  <strong>Note</strong>: If <em>input</em> is given as
+<em>rho_l</em> be set to - in <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong>.  The density grid may be NaN at nodes where the
+load grid is NaN (or zero).  <strong>Note</strong>: If <em>input</em> is given as
 a list file then the optional density grids must be given as part of
 the list and not via <a class="reference internal" href="#h"><span><strong>-H</strong></span></a></strong>.</p>
 </dd>
@@ -317,9 +328,9 @@ optional parameters. Control the FFT dimension:</p>
 dimensions &gt;= data which optimize speed and accuracy of FFT. If FFT
 dimensions &gt; grid file dimensions, data are extended and tapered to zero.</p>
 </div></blockquote>
-<p>Control detrending of data: Append modifiers for removing a linear trend:</p>
+<p>Control detrending of data: Append modifiers for removing a linear trend. Consult module documentation for the default action:</p>
 <blockquote>
-<div><p><strong>+d</strong>: Detrend data, i.e. remove best-fitting linear trend [Default].</p>
+<div><p><strong>+d</strong>: Detrend data, i.e. remove best-fitting linear trend.</p>
 <p><strong>+a</strong>: Only remove mean value.</p>
 <p><strong>+h</strong>: Only remove mid value, i.e. 0.5 * (max + min).</p>
 <p><strong>+l</strong>: Leave data alone.</p>
@@ -327,8 +338,8 @@ dimensions &gt; grid file dimensions, data are extended and tapered to zero.</p>
 <p>Control extension and tapering of data:
 Use modifiers to control how the extension and tapering are to be performed:</p>
 <blockquote>
-<div><p><strong>+e</strong> extends the grid by imposing edge-point symmetry [Default],</p>
-<p><strong>+m</strong> extends the grid by imposing edge mirror symmetry</p>
+<div><p><strong>+e</strong> extends the grid by imposing edge-point symmetry [Default].</p>
+<p><strong>+m</strong> extends the grid by imposing edge mirror symmetry.</p>
 <p><strong>+n</strong> turns off data extension.</p>
 <p>Tapering is performed from the data edge to the FFT grid edge [100%].
 Change this percentage via <strong>+t</strong><em>width</em>. When <strong>+n</strong> is in effect,
@@ -447,6 +458,11 @@ netCDF COARDS geographic grids will automatically be recognized as geographic.</
 geographic region is close to either pole, you should consider using a Cartesian
 setup instead; you can always project it back to geographic using <a class="reference internal" href="../../grdproject.html"><span class="doc">grdproject</span></a>.</p>
 </section>
+<section id="data-detrending">
+<h2>Data Detrending<a class="headerlink" href="#data-detrending" title="Permalink to this heading">¶</a></h2>
+<p>The default detrending mode is to remove a best-fitting linear plane (<strong>+d</strong>).
+Consult and use <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong> to select other modes.</p>
+</section>
 <section id="transfer-functions">
 <h2>Transfer Functions<a class="headerlink" href="#transfer-functions" title="Permalink to this heading">¶</a></h2>
 <p>If <a class="reference internal" href="#q"><span><strong>-Q</strong></span></a></strong> is given we perform no actual flexure calculations and no input data file is required.
@@ -516,6 +532,19 @@ topographic load in the wavenumber domain, <em>A</em> is the Airy density ratio,
 on the infill density, and <span class="math notranslate nohighlight">\(\Phi(\mathbf{k},t)\)</span> is the response function for the selected rheology. The <strong>grdflexure</strong>
 module read one or more loads <em>h</em>, transforms them to <em>H</em>, evaluates and applies the response function, and
 inversely transform the results back to yield on or more <em>w</em> solutions.</p>
+<section id="variable-load-density">
+<h3>Variable load density<a class="headerlink" href="#variable-load-density" title="Permalink to this heading">¶</a></h3>
+<p>If the load density is variable (i.e., provided as a grid via <a class="reference internal" href="#h"><span><strong>-H</strong></span></a></strong>) then we simply adjust the load height to be
+the equivalent height for the average load density. This is accomplished on a node-by-node basis by honoring the
+equality <span class="math notranslate nohighlight">\(\rho_l(\mathbf{x})\cdot h(\mathbf{x}) = \bar{\rho_l}\cdot h'(\mathbf{x})\)</span>, where the prime height
+is the adjusted amplitude.</p>
+</section>
+<section id="submarine-and-subaerial-loads">
+<h3>Submarine and subaerial loads<a class="headerlink" href="#submarine-and-subaerial-loads" title="Permalink to this heading">¶</a></h3>
+<p>If the water depth is specified via <a class="reference internal" href="#w"><span><strong>-W</strong></span></a></strong> then we check if the (possibly adjusted) load height exceeds the water
+depth for any node.  If so, then we adjust the load height that is above water to what it needs to be if the density
+contrast were against water and not air.  The subaerial height component is thus extended by <span class="math notranslate nohighlight">\(\frac{\rho_l}{\rho_l - \rho_w}\)</span>.</p>
+</section>
 <section id="variable-infill-approximation">
 <h3>Variable infill approximation<a class="headerlink" href="#variable-infill-approximation" title="Permalink to this heading">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(\rho_i = \rho_l\)</span> then <span class="math notranslate nohighlight">\(\gamma = 1\)</span>, otherwise the infill density varies spatially and the Fourier
@@ -631,7 +660,7 @@ J. Geophys. Res., 106(B9), 19,431-19,441,
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

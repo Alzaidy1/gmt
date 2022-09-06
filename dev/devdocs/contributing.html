@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributors Guide &mdash; GMT 6.4.0 documentation</title>
+  <title>Contributors Guide &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="../index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contributors Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ways-to-contribute">Ways to Contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ways-to-contribute-documentation-and-or-code">Ways to Contribute Documentation and/or Code</a></li>
@@ -198,7 +198,7 @@
 <p>This is a community driven project and everyone is welcome to contribute. The project is hosted at the
 <a class="reference external" href="https://github.com/GenericMappingTools/gmt">GMT GitHub repository</a>.</p>
 <p>The goal is to maintain a diverse community that’s pleasant for everyone. <strong>Please be considerate and respectful of
-others</strong>. Everyone must abide by our <a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+others</strong>. Everyone must abide by our <a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
 and we encourage all to read it carefully.</p>
 <section id="ways-to-contribute">
 <h2>Ways to Contribute<a class="headerlink" href="#ways-to-contribute" title="Permalink to this heading">¶</a></h2>
@@ -519,7 +519,7 @@ test script. These tests are tracked in <a class="reference external" href="http
 we use <a class="reference external" href="https://dvc.org/">data version control (dvc)</a> to track the test images, which is like <code class="docutils literal notranslate"><span class="pre">git</span></code> but for data.
 <code class="docutils literal notranslate"><span class="pre">dvc</span></code> stores the hash (md5sum) of a file or an md5sum that describes the contents of a directory. For each test
 <code class="docutils literal notranslate"><span class="pre">test/&lt;module&gt;/*.sh</span></code> that generates a .PS file, there is a baseline image file in <code class="docutils literal notranslate"><span class="pre">test/baseline/&lt;module&gt;/</span></code>
-that is compared to the test result using <a class="reference external" href="www.graphicsmagick.org">GraphicsMagick</a>. Each of the
+that is compared to the test result using <a class="reference external" href="http://www.graphicsmagick.org/">GraphicsMagick</a>. Each of the
 directories <code class="docutils literal notranslate"><span class="pre">test/baseline/&lt;module&gt;</span></code> are tracked by <code class="docutils literal notranslate"><span class="pre">dvc</span></code> using the file <code class="docutils literal notranslate"><span class="pre">test/baseline/&lt;module&gt;.dvc</span></code>. This file
 contains the hash of a JSON .dir file stored in the .dvc cache. The .dir file contains information about each tracked
 file in the directory, which is used to push/pull the files to/from remote storage. The <code class="docutils literal notranslate"><span class="pre">test/baseline/&lt;module&gt;.dvc</span></code>
@@ -625,7 +625,7 @@ to query the diff between your local environment and the remote repository.</p><
 <section id="adding-new-tests">
 <h4>Adding new tests<a class="headerlink" href="#adding-new-tests" title="Permalink to this heading">¶</a></h4>
 <p>If you are fixing a bug or adding a new feature, you should add a test with your pull request. Most of the tests are
-image based and compare a result against a reference PostScript file using <a class="reference external" href="www.graphicsmagick.org">GraphicsMagick</a>.</p>
+image based and compare a result against a reference PostScript file using <a class="reference external" href="http://www.graphicsmagick.org/">GraphicsMagick</a>.</p>
 <p>To add a PostScript based test (e.g., <a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/test/modern/box.sh">box.sh</a>):</p>
 <ul class="simple">
 <li><p>Create a new shell script in the subdirectory under <code class="docutils literal notranslate"><span class="pre">test/</span></code> that corresponds to the module you are testing. The
@@ -690,7 +690,7 @@ section.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

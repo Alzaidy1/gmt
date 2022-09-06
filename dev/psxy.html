@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>psxy &mdash; GMT 6.4.0 documentation</title>
+  <title>psxy &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -374,7 +374,7 @@ your segments are interpreted as polygons, else they are seen as lines.</p>
 </dd>
 </dl>
 <dl class="simple" id="n">
-<dt><strong>-N</strong>[<strong>c</strong>|<strong>r</strong>]</dt><dd><p>Do NOT clip symbols that fall outside map border [Default plots points
+<dt><strong>-N</strong>[<strong>c</strong>|<strong>r</strong>]</dt><dd><p>Do <strong>not</strong> clip symbols that fall outside map border [Default plots points
 whose coordinates are strictly inside the map border only]. The option does not apply to lines and polygons
 which are always clipped to the map region. For periodic (360-longitude)
 maps we must plot all symbols twice in case they are clipped by the repeating
@@ -566,13 +566,14 @@ and <strong>+s</strong> can represent those as groups of individual bars instead
 </figure>
 <dl class="simple">
 <dt><strong>-Sb</strong>[<em>size</em>[<strong>c</strong>|<strong>i</strong>|<strong>p</strong>|<strong>q</strong>]][<strong>+b</strong>|<strong>B</strong>[<em>base</em>]][<strong>+v</strong>|<strong>i</strong><em>ny</em>][<strong>+s</strong>[<em>gap</em>]]</dt><dd><p>Vertical <strong>b</strong>ar extending from <em>base</em> to y. The <em>size</em> is bar width.
-Append <strong>q</strong> if <em>size</em> is a quantity in x-units [Default is plot-distance units].
+Append <strong>q</strong> if <em>size</em> is a quantity in x-units [Default is plot-distance units <strong>c</strong>|<strong>i</strong>|<strong>p</strong>].
 By default, <em>base</em> = 0. Append <strong>+b</strong>[<em>base</em>] to change this
 value. If <em>base</em> is not appended then we read it from the last input
 data column.  Use <strong>+B</strong>[<em>base</em>] if the bar height is measured relative
 to <em>base</em> [Relative to origin]. Normally, the bar requires a single input <em>y</em>-value.
 To plot multi-band bars, please append <strong>+v</strong>|<strong>i</strong><em>ny</em>, where <em>ny</em> indicates the
-total number of bands in the bar.  Here, <strong>+i</strong> means we must accumulate the
+total number of bands in the bar (and hence the number of values required to follow
+the x,y coordinate pair in the input).  Here, <strong>+i</strong> means we must accumulate the
 bar values from the increments <em>dy</em>, while <strong>+v</strong> means we get the complete
 values relative to <em>base</em>. Normally, the bands are plotted as sections of a final single bar.
 Use <strong>+s</strong> to instead split the bar into <em>ny</em> side-by-side, individual and thinner bars. The
@@ -581,14 +582,15 @@ where <em>size</em> is the combined width of all the individual, thinner bars pl
 Multiband bars requires <a class="reference internal" href="#c"><span><strong>-C</strong></span></a></strong> with one color per band (CPT z-values must be 0, 1, …, <em>ny</em> - 1).
 Thus, input records are either (<em>x y1 y2 … yn</em>) or (<em>x dy1 dy2 … dyn</em>).</p>
 </dd>
-<dt><strong>-SB</strong>[<em>size</em>[<strong>c</strong>|<strong>i</strong>|<strong>p</strong>|<strong>q</strong>]][<strong>+b</strong>|<strong>B</strong>[<em>base</em>]][<strong>+v</strong>|<strong>i</strong><em>nx</em>][<strong>+s</strong>[<em>gap</em>]]</dt><dd><p>Horizontal <strong>b</strong>ar extending from <em>base</em> to x. The <em>size</em> is bar width.
-Append <strong>q</strong> if <em>size</em> is a quantity in y-units [Default is plot-distance units].
+<dt><strong>-SB</strong>[<em>size</em>[<strong>c</strong>|<strong>i</strong>|<strong>p</strong>|<strong>q</strong>]][<strong>+b</strong>|<strong>B</strong>[<em>base</em>]][<strong>+v</strong>|<strong>i</strong><em>nx</em>][<strong>+s</strong>[<em>gap</em>]]</dt><dd><p>Horizontal <strong>B</strong>ar extending from <em>base</em> to x. The <em>size</em> is bar width.
+Append <strong>q</strong> if <em>size</em> is a quantity in y-units [Default is plot-distance units <strong>c</strong>|<strong>i</strong>|<strong>p</strong>].
 By default, <em>base</em> = 0. Append <strong>+b</strong>[<em>base</em>] to change this
 value. If <em>base</em> is not appended then we read it from the last input
 data column.  Use <strong>+B</strong>[<em>base</em>] if the bar length is measured relative
 to <em>base</em> [Relative to origin]. Normally, the bar requires a single input <em>x</em>-value.
 To plot multi-band bars, please append <strong>+v</strong>|<strong>i</strong><em>nx</em>, where <em>nx</em> indicates the
-total number of bands in the bar.  Here, <strong>+i</strong> means we must accumulate the
+total number of bands in the bar (and hence the number of values required to follow
+the x,y coordinate pair in the input).  Here, <strong>+i</strong> means we must accumulate the
 bar value from the increments <em>dx</em>, while <strong>+v</strong> means we get the complete
 values relative to <em>base</em>. Normally, the bands are plotted as sections of a final single bar.
 Use <strong>+s</strong> to instead split the bar into <em>nx</em> side-by-side, individual and thinner bars. The
@@ -659,13 +661,17 @@ take many parameters and can make decisions based on these parameters.</span><a 
 </figcaption>
 </figure>
 <dl class="simple">
-<dt><strong>-Sk</strong><em>name</em>/<em>size</em></dt><dd><p><strong>k</strong>ustom symbol. We will look for a symbol definition file called <em>name</em>.def in
+<dt><strong>-S</strong>[<strong>k</strong><em>name</em>[/<em>size</em>]]</dt><dd><p>A <strong>k</strong>ustom symbol. We will look for a symbol definition file called <em>name</em>.def in
 (1) the current directory, (2) in ~/.gmt or (3) in <strong>$GMT_SHAREDIR</strong>/custom.
-The symbol defined in the definition file is of normalized unit size by default;
+The symbol in the definition file is of normalized unit size by default;
 the appended <em>size</em> will scale the symbol accordingly. Users may create their own
 custom *.def files; see <a class="reference internal" href="#custom-symbols">Custom Symbols</a> below.
 Alternatively, you can supply an EPS file instead of a *.def file and
-we will scale and place that graphic as a symbol.</p>
+we will scale and place that graphic as a symbol.  If <em>size</em> is not given then we
+expect in from the input file. <strong>Note</strong>: To also give the name of the custom
+symbol via the input, the trailing text must start with the symbol name which must
+include the leading <strong>k</strong>. The <em>size</em> must either be given as a numerical column
+(as for all other symbols) or be added to the name with the required slash.</p>
 </dd>
 </dl>
 <p>The last group of symbols are all special <em>lines</em> with embellishments along them.
@@ -1441,7 +1447,7 @@ rearrange your data record to match the expected format.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

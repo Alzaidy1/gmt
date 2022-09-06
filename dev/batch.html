@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>batch &mdash; GMT 6.4.0 documentation</title>
+  <title>batch &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -155,6 +155,8 @@
 <p><strong>gmt batch</strong> <em>mainscript</em>
 <a class="reference internal" href="#n"><span><strong>-N</strong></span></a></strong><em>prefix</em>
 <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong><em>njobs</em>|<em>min</em>/<em>max</em>/<em>inc</em>[<strong>+n</strong>]|<em>timefile</em>[<strong>+p</strong><em>width</em>][<strong>+s</strong><em>first</em>][<strong>+w</strong>[<em>str</em>]|<strong>W</strong>]
+[ <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong> ]
+[ <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong><em>template</em> ]
 [ <a class="reference internal" href="#i"><span><strong>-I</strong></span></a></strong><em>includefile</em> ]
 [ <a class="reference internal" href="#m"><span><strong>-M</strong></span></a></strong>[<em>job</em>] ]
 [ <a class="reference internal" href="#q"><span><strong>-Q</strong></span></a></strong>[<strong>s</strong>] ]
@@ -216,6 +218,28 @@ is available as no data file is available.</p>
 </section>
 <section id="optional-arguments">
 <h2>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this heading">¶</a></h2>
+<dl class="simple" id="d">
+<dt><strong>-D</strong></dt><dd><p>Select this option if (1) the main script does not produce products named using the prefix <strong>BATCH_NAME</strong>,
+so we should not attempt to move such files to the top directory, or (2) the main script will handle the
+placement of any such product files directly.</p>
+</dd>
+</dl>
+<dl class="simple" id="f">
+<dt><strong>-F</strong><em>template</em></dt><dd><p>Rather than build product file names from the <strong>BATCH_NAME</strong> prefix based on a single running number,
+use this <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">C-format</a> <em>template</em> instead and create
+unique names by formatting the data columns given by <em>timefile</em>.  Some limitations apply: (1) If <em>timefile</em>
+has trailing text then it may be used with a single %s code as the <em>last</em> format statement in <em>template</em>.
+If no %s is found then any trailing text present will not be used.  (2) The previous <em>N</em> format statements
+will be used to convert the first <em>N</em> data columns in <em>timefile</em>; there is no option to skip a column or
+to specify a specific order of columns in the template (but see <strong>-i</strong><a class="reference internal" href="gmt.html#icols-full"><span class="std std-ref">flags</span></a> to rearrange the input order).
+(3) Up to five numerical statements may be used (provided the <em>timefile</em> has enough columns),
+including none.  E.g., <strong>-F</strong>my_data_%05.2lf_%07.0lf_%s will use the first two numerical columns in <em>timefile</em>
+as well as the trailing text to create a unique product prefix. <strong>Note</strong>: Since a GMT data set internally
+is using double precision variables you must use floating point format statements even if some or all
+of your data columns are integers. Finally, if your choice of format statement and trailing text yield
+tabs or spaces in the final prefix we will automatically replace those with underscores.</p>
+</dd>
+</dl>
 <dl class="simple" id="i">
 <dt><strong>-I</strong><em>includefile</em></dt><dd><p>Insert the contents of <em>includefile</em> into the batch_init.sh script that is accessed by all batch scripts.
 This mechanism is used to add information (typically constant variable assignments) that the <em>mainscript</em>
@@ -308,7 +332,8 @@ column in <em>timefile</em>.  If <em>timefile</em> has trailing text then that t
 <strong>BATCH_TEXT</strong>, and if word-splitting was explicitly requested by <strong>+w</strong> modifier to <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong> then the trailing
 text is also split into individual word parameters <strong>BATCH_WORD0</strong>, <strong>BATCH_WORD1</strong>, etc. <strong>Note</strong>: Any
 product(s) made by the processing scripts should be named using <strong>BATCH_NAME</strong> as their name prefix as these
-will be automatically moved up to the starting directory upon completion.</p>
+will be automatically moved up to the starting directory upon completion (unless <a class="reference internal" href="#d"><span><strong>-D</strong></span></a></strong> is in effect). However,
+note that <a class="reference internal" href="#f"><span><strong>-F</strong></span></a></strong> can be used to select more diverse product names based on the input parameters given via <a class="reference internal" href="#t"><span><strong>-T</strong></span></a></strong>.</p>
 </section>
 <section id="data-files">
 <h2>Data Files<a class="headerlink" href="#data-files" title="Permalink to this heading">¶</a></h2>
@@ -474,7 +499,7 @@ for various solutions.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

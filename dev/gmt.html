@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gmt &mdash; GMT 6.4.0 documentation</title>
+  <title>gmt &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -950,9 +950,9 @@ and <strong>cs2cs</strong> programs) so users are referred to <a class="referenc
 <p>The usage of <strong>PROJ</strong> follows very closely the syntax of <strong>proj</strong> and <strong>cs2cs</strong>. The projection parameters
 are encapsulated under the <strong>-J</strong> option. Because there are normally several parameters defining a
 referencing system separated by spaces (in <strong>PROJ</strong> or <strong>GDAL</strong>) we can either use double quotes as in
-<strong>-J</strong>“<em>+proj=merc +ellps=WGS84 +units=m</em>” or just glue all parameters like in
+<strong>-J</strong>“<em>+proj=merc +ellps=WGS84 +units=m</em>“ or just glue all parameters like in
 <strong>-J</strong><em>+proj=merc+ellps=WGS84+units=m</em>.</p>
-<p>Using <a class="reference external" href="http://spatialreference.org">EPSG codes</a> is also possible (but need the setting of the <strong>GDAL_DATA</strong>
+<p>Using <a class="reference external" href="https://spatialreference.org">EPSG codes</a> is also possible (but need the setting of the <strong>GDAL_DATA</strong>
 environment variable to point to the GDAL’s <em>data</em> sub-directory). For example <strong>-JEPSG:4326</strong> sets
 the WGS-84 system.</p>
 <p>For <a class="reference internal" href="mapproject.html"><span class="doc">mapproject</span></a> and <a class="reference internal" href="grdproject.html"><span class="doc">grdproject</span></a> we can go directly from the
@@ -965,7 +965,7 @@ Here, only the subset of the <strong>PROJ</strong> projections that can be mappe
 available to use. Another aspect that is not present in <strong>PROJ</strong>, because it’s not a mapping library,
 is how to set the map scale or map dimension. We introduced the two extensions <strong>+width=</strong><em>size</em> and
 <strong>+scale=</strong><em>1:xxxx</em> that work exactly like the <em>map width</em> and <em>scale</em> in classical GMT. It is also allowed
-to provide the scale (but NOT the width) by appending the string “/1:xxx” to the end of the projection parameters.</p>
+to provide the scale (but <strong>not</strong> the width) by appending the string “/1:xxx” to the end of the projection parameters.</p>
 </dd>
 </dl>
 <span class="target" id="r-full"></span></section>
@@ -1004,7 +1004,7 @@ countries given by the codes. Simply append one or more comma-separated countrie
 <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)">ISO 3166-1 alpha-2 convention</a> (e.g., NO) or the full
 country name (e.g., Norway). To select a state within a country (if available), append .state (e.g, US.TX),
 or the full state name (e.g., Texas). To specify a whole continent, spell out the full continent name (e.g., -RAfrica).
-Finally, append any <a class="reference internal" href="coast.html#id1"><span class="std std-ref">DCW collection</span></a> abbreviations or full names for the extent of the
+Finally, append any <a class="reference internal" href="coast.html#dcw-collections"><span class="std std-ref">DCW collection</span></a> abbreviations or full names for the extent of the
 collection or named region. All names are case-insensitive. The following modifiers can be appended:</p>
 <ul class="simple">
 <li><p><strong>+r</strong> to adjust the region boundaries to be multiples of the steps indicated by <em>inc</em>, <em>xinc</em>/<em>yinc</em>, or
@@ -1979,7 +1979,7 @@ GMT documentation site <a class="reference external" href="https://docs.generic-
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6. GMT Map Projections &mdash; GMT 6.4.0 documentation</title>
+  <title>6. GMT Map Projections &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
@@ -53,7 +53,7 @@
             <a href="../index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -158,7 +158,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../devdocs/team.html">Team Gallery</a></li>
@@ -254,10 +254,10 @@ invented some of our own as well. For a full list of both the old 1- and 2-lette
 meaning.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 40%" />
+<col style="width: 40.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 40.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Projection</p></th>
@@ -1004,7 +1004,7 @@ follows:</p>
 <p>Note that when a world map is given (indicated by <strong>-R</strong><em>0/360/s/n</em>), the arguments are interpreted to mean oblique
 degrees, i.e., the 360° range is understood to mean the extent of the plot along the central meridian, while the “south”
 and “north” values represent how far from the central longitude we want the plot to extend. These values correspond to
-latitudes in the regular Mercator projection and must therefore be less than 90.</p>
+latitudes in the regular Mercator projection and must therefore be less than 90°.</p>
 </section>
 <section id="universal-transverse-mercator-utm-projection-ju-ju">
 <span id="ju"></span><h3><span class="section-number">6.3.3. </span>Universal Transverse Mercator (UTM) projection (<strong>-Ju</strong> <strong>-JU</strong>)<a class="headerlink" href="#universal-transverse-mercator-utm-projection-ju-ju" title="Permalink to this heading">¶</a></h3>
@@ -1141,7 +1141,7 @@ gmt end show
 (although a standard, you can change this with <a class="reference internal" href="../gmt.conf.html#term-PROJ_SCALE_FACTOR"><span class="xref std std-term">PROJ_SCALE_FACTOR</span></a>). This makes the UTM projection a <em>secant</em>
 projection and not a <em>tangent</em> projection like the <a class="reference internal" href="#jt"><span class="std std-ref">transverse Mercator</span></a> above. The scale only varies by 1
 part in 1,000 from true scale at equator. The ellipsoidal projection expressions are accurate for map areas that extend
-less than 10 away from the central meridian. For larger regions we use the conformal latitude in the general spherical
+less than 10° away from the central meridian. For larger regions we use the conformal latitude in the general spherical
 formulae instead.</p>
 </section>
 <section id="oblique-mercator-projection-jo-jo">
@@ -1823,6 +1823,7 @@ Equator only. Its main use is to show the entire world enclosed in a circle.</p>
 </section>
 <section id="footnotes">
 <h2><span class="section-number">6.5. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id4" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">20</a><span class="fn-bracket">]</span></span>
 <p>Snyder, J. P., 1987, Map Projections A Working Manual, U.S.
@@ -1842,6 +1843,7 @@ different maps. GMT uses the
 interpolant selected by the parameter <a class="reference internal" href="../gmt.conf.html#term-GMT_INTERPOLANT"><span class="xref std std-term">GMT_INTERPOLANT</span></a> in the
 file.</p>
 </aside>
+</aside>
 </section>
 </section>
 
@@ -1857,7 +1859,7 @@ file.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 

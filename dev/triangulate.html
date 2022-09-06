@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>triangulate &mdash; GMT 6.4.0 documentation</title>
+  <title>triangulate &mdash; GMT 6.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
@@ -52,7 +52,7 @@
             <a href="index.html" class="icon icon-home"> GMT
           </a>
               <div class="version">
-                6.4
+                6.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/GenericMappingTools/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/contributing.html">Contributors Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/maintenance.html">Maintainers Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devdocs/team.html">Team Gallery</a></li>
@@ -186,7 +186,7 @@
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p><strong>triangulate</strong> reads one or more ASCII [or binary] files (or standard
-input) containing x,y[,z] and performs Delaunay triangulation, i.e., it
+input) containing <em>x, y</em>[<em>, z</em>] and performs Delaunay triangulation, i.e., it
 finds how the points should be connected to give the most equilateral
 triangulation possible. If a map projection (give <a class="reference internal" href="#r"><span><strong>-R</strong></span></a></strong> and <a class="reference internal" href="#j"><span><strong>-J</strong></span></a></strong>) is
 chosen then it is applied before the triangulation is calculated. By
@@ -265,7 +265,7 @@ automatic scaling to preserve precision for integer grids [Default
 is 1].</p></li>
 </ul>
 </div></blockquote>
-<p>Note: Any offset is added before any scaling. <strong>+sa</strong> also sets <strong>+oa</strong>
+<p><strong>Note</strong>: Any offset is added before any scaling. <strong>+sa</strong> also sets <strong>+oa</strong>
 (unless overridden). To write specific formats via GDAL, use =<em>gd</em>
 and supply <em>driver</em> (and optionally <em>dataType</em>) and/or one or more
 concatenated GDAL <strong>-co</strong> options using <strong>+c</strong>. See
@@ -355,8 +355,8 @@ Voronoi polygons is gridding is selected].</p>
 </dd>
 </dl>
 <dl class="simple" id="z">
-<dt><strong>-Z</strong></dt><dd><p>Controls whether we read (x,y) or (x,y,z) data and if z should be
-output when <a class="reference internal" href="#m"><span><strong>-M</strong></span></a></strong> or <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong> are used [Read (x,y) only].</p>
+<dt><strong>-Z</strong></dt><dd><p>Controls whether we read (<em>x,y</em>) or (<em>x,y,z</em>) data and if <em>z</em> should be
+output when <a class="reference internal" href="#m"><span><strong>-M</strong></span></a></strong> or <a class="reference internal" href="#s"><span><strong>-S</strong></span></a></strong> are used [Read (<em>x,y</em>) only].</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -485,7 +485,7 @@ file using a 15-cm-wide Mercator map, use</p>
 according to their ID, try</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt triangulate samples.xyz -M -Qn -R-100/-90/30/34 -JM15c <span class="p">|</span> <span class="se">\</span>
-    gmt plot -R-100/-90/30/34 -JM15c -W0.5p+cf -L -B1 -Ccolors.cpt -L -pdf polygons
+    gmt plot -R-100/-90/30/34 -JM15c -W0.5p+cf -B1 -Ccolors.cpt -pdf polygons
 </pre></div>
 </div>
 </div></blockquote>
@@ -541,7 +541,7 @@ algorithms, <em>Photogrammetric Eng. &amp; Remote Sensing</em>, <strong>70</stro
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, The GMT Team.
-      <span class="lastupdated">Last updated on Jun 14, 2022.
+      <span class="lastupdated">Last updated on Sep 06, 2022.
       </span></p>
   </div>
 
